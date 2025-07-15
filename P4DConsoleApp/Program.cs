@@ -2,10 +2,21 @@
 // This code snippet is part of a console application that connects to a Plant4D server.
 
 // Declare the server object and specify the server type and version:
+using Plant4D;
+
 Plant4D.Server server = new Plant4D.Server(Plant4D.ServerType.Development, Plant4D.P4DVersion.Rome);
 
 // Create a PCE (Plant-4D Central Environment) object using the server:
 Plant4D.PCE pce = new Plant4D.PCE(server);
+
+// Retrieve the list of projects from the PCE:
+List<PCEProject> projects = pce.GetPCEProjects();
+
+// Display the projects in the console:
+foreach (var p in projects)
+{
+    Console.WriteLine($"Project Name: {p.Description}, Year: {p.Year}");
+}
 
 // Assign a project using the name of the project:
 Plant4D.Project project = new Plant4D.Project(pce, "TestProject");
@@ -18,3 +29,6 @@ var a = project.QuerySettingsTable("rootName", "sectionName", "keyName");
 Console.WriteLine($"The project number is {projno}");
 Console.WriteLine($"The settings table value is {a}");
 Console.WriteLine($"The project year is {project.Year}");
+
+
+
