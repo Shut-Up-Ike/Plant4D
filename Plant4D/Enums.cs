@@ -70,4 +70,12 @@
         LinkTable,
         NE_Settings
     }
+    internal enum PCETables
+    {
+        Databases,
+        Tools,
+        Project_Tool_Rights,
+        Users
+        //can add more as needed
+    }
 }

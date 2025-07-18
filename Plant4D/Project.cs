@@ -21,12 +21,16 @@ namespace Plant4D
         //        myYear = year;
         //    }
         //}
+        private string myYear;
         public string Year
         {
-            get;
+            get
+            {
+                return myYear;
+            }
             private set
             {
-                field = PCE.GetProjectYear(DbName);
+                myYear = PCE.GetProjectYear(DbName);
             }
         }
 
@@ -40,7 +44,7 @@ namespace Plant4D
                 DbName = projectdbname;
                 ConnectionString = PCE.GetProjectConnectionString(DbName);
                 Description = PCE.GetProjectDescription(DbName);
-                Year = 0;
+                Year = PCE.GetProjectYear(DbName);
                 BuildDataSet();
             }
             catch (Exception)

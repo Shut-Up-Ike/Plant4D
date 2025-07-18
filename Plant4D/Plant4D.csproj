@@ -33,6 +33,9 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="P4DHelperClass">
+      <HintPath>..\..\Process Line Data Manager\Process Line Data Manager\bin\Release\P4DHelperClass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,8 @@
     <Compile Include="BaseClass.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="PCE.cs" />
+    <Compile Include="Plant4D.cs" />
+    <Compile Include="Plant4DServer.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
