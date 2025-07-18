@@ -61,4 +61,13 @@
         Elevated,
         Admin
     }
+    public enum Tables
+    {
+        Commondata,
+        Solodata,
+        Components,
+        Settings,
+        LinkTable,
+        NE_Settings
+    }
 }
