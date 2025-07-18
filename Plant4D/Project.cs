@@ -7,27 +7,30 @@ namespace Plant4D
 {
     public class Project
     {
-        public enum Tables
-        {
-            Commondata,
-            Solodata,
-            Components,
-            Settings,
-            LinkTable,
-            NE_Settings
-        }
         public PCE PCE { get; private set; }
         public string Description { get; private set; }
         public string DbName { get; private set; }
         public string ConnectionString { get; private set; }
-        private int myYear;
-        public int Year
+        //private int myYear;
+        //public int Year
+        //{
+        //    get { return myYear; }
+        //    private set
+        //    {
+        //        int.TryParse(PCE.GetProjectYear(DbName), out int year);
+        //        myYear = year;
+        //    }
+        //}
+        private string myYear;
+        public string Year
         {
-            get { return myYear; }
+            get
+            {
+                return myYear;
+            }
             private set
             {
-                int.TryParse(PCE.GetProjectYear(DbName), out int year);
-                myYear = year;
+                myYear = PCE.GetProjectYear(DbName);
             }
         }
 
@@ -41,7 +44,7 @@ namespace Plant4D
                 DbName = projectdbname;
                 ConnectionString = PCE.GetProjectConnectionString(DbName);
                 Description = PCE.GetProjectDescription(DbName);
-                Year = 0;
+                Year = PCE.GetProjectYear(DbName);
                 BuildDataSet();
             }
             catch (Exception)

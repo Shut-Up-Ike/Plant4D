@@ -6,14 +6,6 @@ using System.Linq;
 
 namespace Plant4D
 {
-    internal enum PCETables
-    {
-        Databases,
-        Tools,
-        Project_Tool_Rights,
-        Users
-        //can add more as needed
-    }
     public class PCE
     {
         public Server Server { get; private set; }
@@ -223,6 +215,29 @@ namespace Plant4D
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public List<string> GetAvailableYears()
+        {
+            List<string> list = new List<string>();
+            string filterExpression = $"dbgroup = 'project' and p4dversion = '{Server.P4DVersion.ToString().ToCharArray()[0]}'";
+            try
+            {
+                DataRow[] array = Dataset.Tables[PCETables.Databases.ToString()].Select(filterExpression, "db_yr");
+                foreach (DataRow dataRow in array)
+                {
+                    if (!list.Contains(dataRow["db_yr"].ToString()))
+                    {
+                        list.Add(dataRow["db_yr"].ToString());
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

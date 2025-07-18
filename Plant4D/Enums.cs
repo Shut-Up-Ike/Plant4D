@@ -61,4 +61,21 @@
         Elevated,
         Admin
     }
+    public enum Tables
+    {
+        Commondata,
+        Solodata,
+        Components,
+        Settings,
+        LinkTable,
+        NE_Settings
+    }
+    internal enum PCETables
+    {
+        Databases,
+        Tools,
+        Project_Tool_Rights,
+        Users
+        //can add more as needed
+    }
 }
